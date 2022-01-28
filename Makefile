@@ -14,14 +14,10 @@ LIBS = -ldl
 SRCS := ci.c handle_args.c interface.c lex.c parse.c eval.c print.c err_handler.c variable.c
 OBJS := $(SRCS:%.c=%.o)
 
-SRCSREF := ci.c handle_args.c interface-ref.c lex.c parse-ref.c eval-ref.c print.c err_handler.c variable-ref.c
-OBJSREF := $(SRCS:%.c=%.o)
-
-HANDOUT := tests ansicolors.h ci.c ci.h ci_reference driver.sh err_handler.c err_handler.h eval.c handle_args.c interface.c lex.c node.h parse.c print.c token.h type.h value.h variable.c variable.h
-AUTOGRADER := tests tests-ref ansicolors.h ci.c ci.h err_handler.c err_handler.h eval-ref.c handle_args.c interface.c interface-ref.c lex.c node.h parse-ref.c print.c token.h type.h value.h variable-ref.c variable.h
-
 HDRS := ci.h node.h
-TESTS := tests/test_simple.txt
+TEST_WEEK_1 := tests/test_week1.txt
+TEST_WEEK_2 := tests/test_week2.txt
+TEST_WEEK_3 := tests/test_week3.txt
 
 # Generic rules
 
@@ -36,35 +32,22 @@ TESTS := tests/test_simple.txt
 
 # Targets
 
-all: ci ci_reference test clean
+all: ci test_week1 test_week2 test_week3 clean
 
 ci: ${OBJS} ${HDRS}
 	${CC} ${CC_FLAGS} -o $@ ${OBJS}
 
-ci_reference: ${SRCSREF} ${HDRS}
-	${CC} -fomit-frame-pointer -fno-asynchronous-unwind-tables -Wall -Werror -O2 -o $@ ${SRCSREF}
-
-test: ci
+test_week1: ci
 	chmod +x driver.sh
-	./driver.sh ${TESTS}
+	./driver.sh ${TEST_WEEK_1}
 
-handout: ci ci_reference
-	rm -rf ci-lab ci-lab.tar
-	mkdir ci-lab
-	cp -r ${HANDOUT} ci-lab/
-	cp Makefile-handout ci-lab/Makefile
-	tar cvf ci-lab.tar ci-lab
-	rm -rf ci-lab
+test_week2: ci
+	chmod +x driver.sh
+	./driver.sh ${TEST_WEEK_2}
 
-autograder: FORCE
-	rm -rf autograder/src autograder.zip
-	mkdir autograder/src
-	cp -r ${AUTOGRADER} autograder/src/
-	cp Makefile autograder/src/Makefile
-	cd autograder && zip -r ../autograder.zip ./*
-	rm -rf autograder/src
+test_week3: ci
+	chmod +x driver.sh
+	./driver.sh ${TEST_WEEK_3}
 
 clean:
-	${RM} *.o *.so ci-lab.tar autograder.zip
-
-FORCE:
+	${RM} *.o *.so _output*
