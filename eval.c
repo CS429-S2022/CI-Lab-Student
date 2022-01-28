@@ -11,12 +11,16 @@
 
 #include "ci.h"
 
-/* returns true if the given token is a binary operator and false otherwise */
+/* Function interfaces */
+
+/* Returns true if the given token is a binary operator and false otherwise */
 extern bool is_binop(token_t);
-/* returns true if the given token is a unary operator and false otherwise */
+/* Returns true if the given token is a unary operator and false otherwise */
 extern bool is_unop(token_t);
+/* It might be helpful to note that TOK_QUESTION is the only ternary operator. */
 
 char *strrev(char *str);
+
 
 /* infer_type() - set the type of a non-root node based on the types of children
  * Parameter: A node pointer, possibly NULL.
@@ -26,6 +30,30 @@ char *strrev(char *str);
  */
 
 static void infer_type(node_t *nptr) {
+    // check running status - you can ignore this
+    if (terminate || ignore_input) return;
+
+    // Week 1 TODO: Implement a recursive post-order traversal of the AST. Remember to include a base case.
+
+    switch (nptr->node_type) {
+        // For each week, you will also need to include error checking for each type.
+        // Week 1 TODO: Implement type inference for all operators on int and bool types.
+        // Week 2 TODO: Extend type inference to handle operators on string types.
+        // Week 3 TODO: Implement tpye evaluation for variables.
+        case NT_INTERNAL:
+            switch (nptr->tok) {
+                // For reference, the identity (do nothing) operator is implemented for you.
+                case TOK_IDENTITY:
+                    nptr->type = nptr->children[0]->type; 
+                    break;
+                default:
+                    break;
+            }
+        case NT_LEAF:
+            break;
+        default:
+            break;
+    }
     return;
 }
 
@@ -64,6 +92,44 @@ static void infer_root(node_t *nptr) {
  */
 
 static void eval_node(node_t *nptr) {
+    // check running status - you can ignore this.
+    if (terminate || ignore_input) return;
+
+    // Week 1 TODO: Implement a recursive post-order traversal of the AST. Remember to include a base case.
+    
+    switch (nptr->node_type) {
+        case NT_INTERNAL:
+            // Week 1 TODO: Implement evaluation for all operators on int and bool types.
+            // Week 2 TODO: Extend evaluation to handle operators on string types.
+            if (is_unop(nptr->tok)) {
+                switch (nptr->tok) {
+                    default:
+                        break;
+                }
+            }
+            if (is_binop(nptr->tok)) {
+                switch (nptr->tok) {
+                    default:
+                        break;
+                }
+            }
+            if (nptr->tok == TOK_QUESTION) {
+
+            }
+            // For reference, the identity (do-nothing) operator has been implemented for you.
+            if (nptr->tok == TOK_IDENTITY) {
+                if (nptr->type == STRING_TYPE) {
+                    // Week 2 TODO: You'll need to make a copy of the string.
+                } else {
+                    nptr->val.ival = nptr->children[0]->val.ival;
+                }
+            }
+            break;
+        case NT_LEAF:
+            break;
+        default:
+            break;
+    }
     return;
 }
 
@@ -128,5 +194,6 @@ void infer_and_eval(node_t *nptr) {
  */
 
 char *strrev(char *str) {
+    // Week 2 TODO: Implement copying and reversing the string.
     return NULL;
 }

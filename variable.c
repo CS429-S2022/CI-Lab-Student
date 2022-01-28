@@ -112,6 +112,7 @@ entry_t * init_entry(char *id, node_t *nptr) {
  */
 
 void put(char *id, node_t *nptr) {
+    // Week 3 TODO: Implement adding to the hashtable.
     return;
 }
 
@@ -120,7 +121,9 @@ void put(char *id, node_t *nptr) {
  * Return value: Pointer to the matching entry, or NULL if not found.
  * (STUDENT TODO) 
  */
+
 entry_t* get(char* id) {
+    // Week 3 TODO: Implement retrieving from the hasttable.
     return NULL;
 }
 
