@@ -1,0 +1,4 @@
+git remote add ref git@github.com:CS429-S2022/CI-Lab-Student.git
+git config rebase false
+git pull --allow-unrelated-histories --set-upstream ref main -m "get previous week's checkpoint"
+git push -u origin main
