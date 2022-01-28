@@ -1,0 +1,30 @@
+"a"
+"abc"
+("abc" + "de")
+(_"abc")
+(_"a")
+("abc" * 5)
+("abc" * 50)
+("abc" ~ "abd") # b
+("abc" ~ "abc") # b
+("abcd" > "abc") # b
+("eee" < "eed") # b
+(_ 5)
+(_ (_ 5))
+(_ 0)
+(! true) #b
+(! 5)
+(true ? 1 : 2)
+(false ? true : false)
+(true ? 1 : false)
+(5 / 0)
+(1 + (5 / 0))
+(5 % 0)
+(5 + true)
+(true > false)
+(true ? 5 : (5 / 0))
+("abc" + 1)
+(5 * "abc")
+("abc" & "abc)
+("abc" / 0)
+@q
