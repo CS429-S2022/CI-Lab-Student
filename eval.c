@@ -197,3 +197,11 @@ char *strrev(char *str) {
     // Week 2 TODO: Implement copying and reversing the string.
     return NULL;
 }
+
+/* cleanup() - frees the space allocated to the AST
+ * Parameter: The node to free.
+ */
+void cleanup(node_t *nptr) {
+    // Week 2 TODO: Recursively free each node in the AST
+    return;
+}

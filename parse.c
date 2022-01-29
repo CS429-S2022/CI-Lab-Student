@@ -228,18 +228,3 @@ node_t *read_and_parse(void) {
     init_lexer();
     return build_root();
 }
-
-void cleanup(node_t *nptr) {
-    if (nptr == NULL) return;
-
-    for (int i = 0; i < 3; ++i) {
-        cleanup(nptr->children[i]);
-    }
-    if (nptr->type == STRING_TYPE || nptr->type == ID_TYPE) {
-        if (nptr->val.sval != NULL) {
-            free(nptr->val.sval);
-        }
-    }
-    free(nptr);
-    return;
-}
