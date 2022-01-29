@@ -28,11 +28,11 @@ This is the code base for CS429 F2022 CI lab. Check the writeup for more details
  variable.c
  variable.h
  ```
- * Students are required to complete `eval.c` and `variable.c'. 
+ * Students are required to complete `eval.c` and `variable.c`. 
 
  * `ci_reference` is a compiled reference program executable provided to students. `driver.sh <filename>` runs `ci` and `ci_reference` and compares their outputs.
 
- * `tests/` holds the testcases provided to students. Students are required to pass all testcases in `test_week1.txt` for week 1. They are asked to create their own testcases in `tests/test_custom.txt` for week 3. 
+ * `tests/` holds the testcases provided to students. Students are required to pass all testcases in `test_week1.txt` for week 1.
 
 ## Program
 * Run `make ci` to get the binary `ci`. Run `make test_week#` to run the simple grader on a given week's test cases.
