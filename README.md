@@ -1,6 +1,6 @@
 # CI-lab
 
-This is the internal code base for CS429 SP21 CI lab. Check the writeup for more details.
+This is the code base for CS429 F2022 CI lab. Check the writeup for more details.
 
  ## Files
  Files should be included in handout (`make handout`):
@@ -29,7 +29,7 @@ This is the internal code base for CS429 SP21 CI lab. Check the writeup for more
  ```
  * Students are required complete `eval.c` (and also `variable.c` for EEL-2).
 
- * `ci_reference` is a compiled reference program provided to students. `driver.sh <filename>` runs `ci` and `ci_reference` and compare their outputs.
+ * `ci_reference` is a compiled reference program executable provided to students. `driver.sh <filename>` runs `ci` and `ci_reference` and compare their outputs.
 
  * `tests/` holds the testcases provided to students. Students are required to pass all testcases in `test_simple.txt` for checkpoint 1. They are asked to create their own testcases in `tests/test_custom.txt` for checkpoint 2. The other testcases are categorized loosely by expression types. `tests-ref/` holds the testcases for final grading.
 
