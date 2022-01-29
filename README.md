@@ -27,7 +27,7 @@ This is the internal code base for CS429 SP21 CI lab. Check the writeup for more
  variable.c
  variable.h
  ```
- * Students are required complete `parse.c` and `eval.c` (and also `variable.c` for EEL-2). The reference solution are in `parse-ref.c`, `eval-ref.c` and `variable-ref.c`.
+ * Students are required complete `eval.c` (and also `variable.c` for EEL-2).
 
  * `ci_reference` is a compiled reference program provided to students. `driver.sh <filename>` runs `ci` and `ci_reference` and compare their outputs.
 
